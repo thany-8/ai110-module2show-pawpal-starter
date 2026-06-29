@@ -4,8 +4,31 @@
 
 **a. Initial design**
 
-- Briefly describe your initial UML design.
-- What classes did you include, and what responsibilities did you assign to each?
+
+My Pawpal app will help an ower manage pet care task.The user can add owner information, add pet information, create care tasks, and view a daily schedule.
+
+
+classes:
+* Owner :
+- Stores owner information like name and contact
+- Can add pets.
+
+* Pet:
+- Stores pet information like name, age and species.
+- Belongs to an ower
+
+* Task:
+- Stores care tasks like walk, feeding, medicine, and grooming.
+- Has a date, time and status.
+
+* Scheldule:
+- Organizes tasks by day
+- Detects schedule conflicts
+- Shows today tasks
+
+
+
+
 
 **b. Design changes**
 
