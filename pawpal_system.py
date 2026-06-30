@@ -23,6 +23,7 @@ class Owner:
     """Stores owner information and manages a collection of pets."""
 
     def __init__(self, name: str, contact: str) -> None:
+        """Initialise the owner with a name and contact string."""
         self.name: str = name
         self.contact: str = contact
         self.pets: list[Pet] = []
@@ -41,6 +42,7 @@ class Owner:
         return [task for pet in self.pets for task in pet.tasks]
 
     def __str__(self) -> str:
+        """Return a short string representation of the owner."""
         return f"Owner({self.name})"
 
 
@@ -68,6 +70,7 @@ class Pet:
         )
 
     def __str__(self) -> str:
+        """Return a short string representation of the pet."""
         return f"{self.name} ({self.species}, age {self.age})"
 
 
@@ -98,6 +101,7 @@ class Task:
         self.time = time
 
     def __str__(self) -> str:
+        """Return a formatted summary of the task including status, time, and frequency."""
         detail = f" — {self.description}" if self.description else ""
         display_time = datetime.strptime(self.time, "%H:%M").strftime("%I:%M %p").lstrip("0")
         return (
@@ -115,6 +119,7 @@ class Schedule:
     """Organises tasks by day, detects conflicts, and surfaces today's plan."""
 
     def __init__(self, owner: Owner) -> None:
+        """Initialise the schedule for the given owner with an empty task list."""
         self.owner: Owner = owner
         self.tasks: list[Task] = []
 
@@ -156,4 +161,5 @@ class Schedule:
         return [task for pet in self.owner.get_pets() for task in pet.tasks]
 
     def __str__(self) -> str:
+        """Return a short string representation of the schedule."""
         return f"Schedule({self.owner.name}, {len(self.tasks)} tasks)"
